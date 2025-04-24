@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{640b0ba9-af83-48cf-b97d-b95d38d02f12}</ProjectGuid>
+    <RootNamespace>RABIDPROJECT</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.3.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)build\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\int\</IntDir>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)build\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\int\</IntDir>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)build\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\int\</IntDir>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)build\$(Platform)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\int\</IntDir>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;FBXSDK_SHARED;GLM_ENABLE_EXPERIMENTAL;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)include\vendor\</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\lib\x64;$(SolutionDir)lib;$(SolutionDir)lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk.lib;opengl32.lib;glfw3_mt.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;FBXSDK_SHARED;GLM_ENABLE_EXPERIMENTAL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)include\vendor\</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\lib\x64;$(SolutionDir)lib;$(SolutionDir)lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk.lib;opengl32.lib;glfw3_mt.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;FBXSDK_SHARED;GLM_ENABLE_EXPERIMENTAL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)include\vendor\</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\lib\x64;$(SolutionDir)lib;$(SolutionDir)lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk.lib;opengl32.lib;glfw3_mt.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;FBXSDK_SHARED;GLM_ENABLE_EXPERIMENTAL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)include\vendor\</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.3\lib\x64;$(SolutionDir)lib;$(SolutionDir)lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk.lib;opengl32.lib;glfw3_mt.lib;glew32s.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="include\vendor\imgui\imgui.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="include\vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\core\shapes.cpp" />
+    <ClCompile Include="src\fluidsim\particle.cpp" />
+    <ClCompile Include="src\core\assetLoader.cpp" />
+    <ClCompile Include="src\core\clock.cpp" />
+    <ClCompile Include="src\core\player.cpp" />
+    <ClCompile Include="src\core\input.cpp" />
+    <ClCompile Include="src\core\camera.cpp" />
+    <ClCompile Include="src\core\sprite.cpp" />
+    <ClCompile Include="src\core\engineTestScene.cpp" />
+    <ClCompile Include="src\core\gameState.cpp" />
+    <ClCompile Include="src\core\entity.cpp" />
+    <ClCompile Include="src\core\scene.cpp" />
+    <ClCompile Include="src\core\renderable.cpp" />
+    <ClCompile Include="src\core\application.cpp" />
+    <ClCompile Include="include\vendor\glm\detail\glm.cpp" />
+    <ClCompile Include="include\vendor\stb\stb_image.cpp" />
+    <ClCompile Include="src\core\renderer.cpp" />
+    <ClCompile Include="src\core\geometry.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\core\shader.cpp" />
+    <ClCompile Include="src\core\texture.cpp" />
+    <ClCompile Include="src\core\vertex.cpp" />
+    <ClCompile Include="src\fluidsim\volume.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\vendor\glm\detail\func_common.inl" />
+    <None Include="include\vendor\glm\detail\func_common_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_exponential.inl" />
+    <None Include="include\vendor\glm\detail\func_exponential_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_geometric.inl" />
+    <None Include="include\vendor\glm\detail\func_geometric_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_integer.inl" />
+    <None Include="include\vendor\glm\detail\func_integer_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_matrix.inl" />
+    <None Include="include\vendor\glm\detail\func_matrix_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_packing.inl" />
+    <None Include="include\vendor\glm\detail\func_packing_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_trigonometric.inl" />
+    <None Include="include\vendor\glm\detail\func_trigonometric_simd.inl" />
+    <None Include="include\vendor\glm\detail\func_vector_relational.inl" />
+    <None Include="include\vendor\glm\detail\func_vector_relational_simd.inl" />
+    <None Include="include\vendor\glm\detail\type_half.inl" />
+    <None Include="include\vendor\glm\detail\type_mat2x2.inl" />
+    <None Include="include\vendor\glm\detail\type_mat2x3.inl" />
+    <None Include="include\vendor\glm\detail\type_mat2x4.inl" />
+    <None Include="include\vendor\glm\detail\type_mat3x2.inl" />
+    <None Include="include\vendor\glm\detail\type_mat3x3.inl" />
+    <None Include="include\vendor\glm\detail\type_mat3x4.inl" />
+    <None Include="include\vendor\glm\detail\type_mat4x2.inl" />
+    <None Include="include\vendor\glm\detail\type_mat4x3.inl" />
+    <None Include="include\vendor\glm\detail\type_mat4x4.inl" />
+    <None Include="include\vendor\glm\detail\type_mat4x4_simd.inl" />
+    <None Include="include\vendor\glm\detail\type_quat.inl" />
+    <None Include="include\vendor\glm\detail\type_quat_simd.inl" />
+    <None Include="include\vendor\glm\detail\type_vec1.inl" />
+    <None Include="include\vendor\glm\detail\type_vec2.inl" />
+    <None Include="include\vendor\glm\detail\type_vec3.inl" />
+    <None Include="include\vendor\glm\detail\type_vec4.inl" />
+    <None Include="include\vendor\glm\detail\type_vec4_simd.inl" />
+    <None Include="include\vendor\glm\ext\matrix_clip_space.inl" />
+    <None Include="include\vendor\glm\ext\matrix_common.inl" />
+    <None Include="include\vendor\glm\ext\matrix_projection.inl" />
+    <None Include="include\vendor\glm\ext\matrix_relational.inl" />
+    <None Include="include\vendor\glm\ext\matrix_transform.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_common.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_common_simd.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_exponential.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_geometric.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_relational.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_transform.inl" />
+    <None Include="include\vendor\glm\ext\quaternion_trigonometric.inl" />
+    <None Include="include\vendor\glm\ext\scalar_common.inl" />
+    <None Include="include\vendor\glm\ext\scalar_constants.inl" />
+    <None Include="include\vendor\glm\ext\scalar_integer.inl" />
+    <None Include="include\vendor\glm\ext\scalar_packing.inl" />
+    <None Include="include\vendor\glm\ext\scalar_relational.inl" />
+    <None Include="include\vendor\glm\ext\scalar_ulp.inl" />
+    <None Include="include\vendor\glm\ext\vector_common.inl" />
+    <None Include="include\vendor\glm\ext\vector_integer.inl" />
+    <None Include="include\vendor\glm\ext\vector_packing.inl" />
+    <None Include="include\vendor\glm\ext\vector_relational.inl" />
+    <None Include="include\vendor\glm\ext\vector_ulp.inl" />
+    <None Include="include\vendor\glm\gtc\bitfield.inl" />
+    <None Include="include\vendor\glm\gtc\color_space.inl" />
+    <None Include="include\vendor\glm\gtc\constants.inl" />
+    <None Include="include\vendor\glm\gtc\epsilon.inl" />
+    <None Include="include\vendor\glm\gtc\integer.inl" />
+    <None Include="include\vendor\glm\gtc\matrix_access.inl" />
+    <None Include="include\vendor\glm\gtc\matrix_inverse.inl" />
+    <None Include="include\vendor\glm\gtc\matrix_transform.inl" />
+    <None Include="include\vendor\glm\gtc\noise.inl" />
+    <None Include="include\vendor\glm\gtc\packing.inl" />
+    <None Include="include\vendor\glm\gtc\quaternion.inl" />
+    <None Include="include\vendor\glm\gtc\quaternion_simd.inl" />
+    <None Include="include\vendor\glm\gtc\random.inl" />
+    <None Include="include\vendor\glm\gtc\reciprocal.inl" />
+    <None Include="include\vendor\glm\gtc\round.inl" />
+    <None Include="include\vendor\glm\gtc\type_precision.inl" />
+    <None Include="include\vendor\glm\gtc\type_ptr.inl" />
+    <None Include="include\vendor\glm\gtc\ulp.inl" />
+    <None Include="include\vendor\glm\gtx\associated_min_max.inl" />
+    <None Include="include\vendor\glm\gtx\bit.inl" />
+    <None Include="include\vendor\glm\gtx\closest_point.inl" />
+    <None Include="include\vendor\glm\gtx\color_encoding.inl" />
+    <None Include="include\vendor\glm\gtx\color_space.inl" />
+    <None Include="include\vendor\glm\gtx\color_space_YCoCg.inl" />
+    <None Include="include\vendor\glm\gtx\common.inl" />
+    <None Include="include\vendor\glm\gtx\compatibility.inl" />
+    <None Include="include\vendor\glm\gtx\component_wise.inl" />
+    <None Include="include\vendor\glm\gtx\dual_quaternion.inl" />
+    <None Include="include\vendor\glm\gtx\easing.inl" />
+    <None Include="include\vendor\glm\gtx\euler_angles.inl" />
+    <None Include="include\vendor\glm\gtx\extend.inl" />
+    <None Include="include\vendor\glm\gtx\extended_min_max.inl" />
+    <None Include="include\vendor\glm\gtx\exterior_product.inl" />
+    <None Include="include\vendor\glm\gtx\fast_exponential.inl" />
+    <None Include="include\vendor\glm\gtx\fast_square_root.inl" />
+    <None Include="include\vendor\glm\gtx\fast_trigonometry.inl" />
+    <None Include="include\vendor\glm\gtx\float_notmalize.inl" />
+    <None Include="include\vendor\glm\gtx\functions.inl" />
+    <None Include="include\vendor\glm\gtx\gradient_paint.inl" />
+    <None Include="include\vendor\glm\gtx\handed_coordinate_space.inl" />
+    <None Include="include\vendor\glm\gtx\hash.inl" />
+    <None Include="include\vendor\glm\gtx\integer.inl" />
+    <None Include="include\vendor\glm\gtx\intersect.inl" />
+    <None Include="include\vendor\glm\gtx\io.inl" />
+    <None Include="include\vendor\glm\gtx\log_base.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_cross_product.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_decompose.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_factorisation.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_interpolation.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_major_storage.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_operation.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_query.inl" />
+    <None Include="include\vendor\glm\gtx\matrix_transform_2d.inl" />
+    <None Include="include\vendor\glm\gtx\mixed_product.inl" />
+    <None Include="include\vendor\glm\gtx\norm.inl" />
+    <None Include="include\vendor\glm\gtx\normal.inl" />
+    <None Include="include\vendor\glm\gtx\normalize_dot.inl" />
+    <None Include="include\vendor\glm\gtx\number_precision.inl" />
+    <None Include="include\vendor\glm\gtx\optimum_pow.inl" />
+    <None Include="include\vendor\glm\gtx\orthonormalize.inl" />
+    <None Include="include\vendor\glm\gtx\perpendicular.inl" />
+    <None Include="include\vendor\glm\gtx\polar_coordinates.inl" />
+    <None Include="include\vendor\glm\gtx\projection.inl" />
+    <None Include="include\vendor\glm\gtx\quaternion.inl" />
+    <None Include="include\vendor\glm\gtx\raw_data.inl" />
+    <None Include="include\vendor\glm\gtx\rotate_normalized_axis.inl" />
+    <None Include="include\vendor\glm\gtx\rotate_vector.inl" />
+    <None Include="include\vendor\glm\gtx\scalar_relational.inl" />
+    <None Include="include\vendor\glm\gtx\spline.inl" />
+    <None Include="include\vendor\glm\gtx\std_based_type.inl" />
+    <None Include="include\vendor\glm\gtx\string_cast.inl" />
+    <None Include="include\vendor\glm\gtx\texture.inl" />
+    <None Include="include\vendor\glm\gtx\transform.inl" />
+    <None Include="include\vendor\glm\gtx\transform2.inl" />
+    <None Include="include\vendor\glm\gtx\type_aligned.inl" />
+    <None Include="include\vendor\glm\gtx\type_trait.inl" />
+    <None Include="include\vendor\glm\gtx\vector_angle.inl" />
+    <None Include="include\vendor\glm\gtx\vector_query.inl" />
+    <None Include="include\vendor\glm\gtx\wrap.inl" />
+    <None Include="libfbxsdk.dll" />
+    <None Include="lib\glew32.dll" />
+    <None Include="lib\glfw3.dll" />
+    <None Include="lib\Release\libfbxsdk.dll" />
+    <None Include="src\Shaders\coloredUnlitFrag.glsl" />
+    <None Include="src\Shaders\coloredUnlitVert.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\Debug\libfbxsdk-md.lib" />
+    <Library Include="lib\Debug\libfbxsdk-mt.lib" />
+    <Library Include="lib\Debug\libfbxsdk.lib" />
+    <Library Include="lib\Debug\libxml2-md.lib" />
+    <Library Include="lib\Debug\libxml2-mt.lib" />
+    <Library Include="lib\Debug\zlib-md.lib" />
+    <Library Include="lib\Debug\zlib-mt.lib" />
+    <Library Include="lib\glew32.lib" />
+    <Library Include="lib\glew32s.lib" />
+    <Library Include="lib\glfw3.lib" />
+    <Library Include="lib\glfw3dll.lib" />
+    <Library Include="lib\glfw3_mt.lib" />
+    <Library Include="lib\Release\libfbxsdk-md.lib" />
+    <Library Include="lib\Release\libfbxsdk-mt.lib" />
+    <Library Include="lib\Release\libfbxsdk.lib" />
+    <Library Include="lib\Release\libxml2-md.lib" />
+    <Library Include="lib\Release\libxml2-mt.lib" />
+    <Library Include="lib\Release\zlib-md.lib" />
+    <Library Include="lib\Release\zlib-mt.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\core\gradient.h" />
+    <ClInclude Include="include\core\assetLoader.h" />
+    <ClInclude Include="include\core\clock.h" />
+    <ClInclude Include="include\core\camera.h" />
+    <ClInclude Include="include\core\engineTestScene.h" />
+    <ClInclude Include="include\core\gameState.h" />
+    <ClInclude Include="include\core\entity.h" />
+    <ClInclude Include="include\core\application.h" />
+    <ClInclude Include="include\core\numericParser.h" />
+    <ClInclude Include="include\utils\logging.h" />
+    <ClInclude Include="include\utils\math.h" />
+    <ClInclude Include="include\vendor\fbxsdk.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxalloc.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxarch.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxdebug.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxnew.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxstdcompliant.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\arch\fbxtypes.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxarray.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxbitset.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxcharptrset.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxcontainerallocators.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxdynamicarray.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxfile.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxfolder.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxhashmap.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxintrusivelist.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxmap.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxmemorypool.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxmultimap.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxpair.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxredblacktree.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxset.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxstatus.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxstring.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxstringlist.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxtime.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxtimecode.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\base\fbxutils.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxclassid.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxconnectionpoint.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxdatatypes.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxemitter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxevent.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxeventhandler.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxlistener.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxloadingstrategy.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxmanager.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxmodule.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxobject.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxperipheral.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxplugin.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxplugincontainer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxproperty.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxpropertydef.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxpropertyhandle.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxpropertypage.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxpropertytypes.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxquery.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxqueryevent.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxscopedloadingdirectory.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxscopedloadingfilename.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxstream.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxsymbol.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxsystemunit.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\fbxxref.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxaffinematrix.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxdualquaternion.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxmath.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxmatrix.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxquaternion.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxtransforms.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxvector2.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\math\fbxvector4.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\sync\fbxatomic.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\sync\fbxclock.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\sync\fbxsync.h" />
+    <ClInclude Include="include\vendor\fbxsdk\core\sync\fbxthread.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fbxsdk_def.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fbxsdk_nsbegin.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fbxsdk_nsend.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fbxsdk_version.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladaanimationelement.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladaelement.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladaiostream.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladanamespace.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladatokens.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxcolladautils.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxreadercollada14.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\collada\fbxwritercollada14.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxbase64coder.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxcallbacks.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxexporter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxexternaldocreflistener.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxfiletokens.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxglobalcamerasettings.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxgloballightsettings.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxglobalsettings.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxgobo.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbximporter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxiobase.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxiopluginregistry.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxiosettings.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxiosettingspath.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxprogress.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxreader.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxstatistics.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxstatisticsfbx.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbxwriter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxio.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxreaderfbx5.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxreaderfbx6.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxreaderfbx7.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxwriterfbx5.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxwriterfbx6.h" />
+    <ClInclude Include="include\vendor\fbxsdk\fileio\fbx\fbxwriterfbx7.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimcurve.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimcurvebase.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimcurvefilters.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimcurvenode.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimevalclassic.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimevalstate.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimevaluator.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimlayer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimstack.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\animation\fbxanimutilities.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxcharacter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxcharacternodename.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxcharacterpose.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraint.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintaim.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintcustom.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintparent.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintposition.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintrotation.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintscale.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintsinglechainik.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxconstraintutils.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxcontrolset.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\constraint\fbxhik2fbxcharacter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxaudio.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxaudiolayer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxaxissystem.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxcollection.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxcollectionexclusive.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxcontainer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxcontainertemplate.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxdisplaylayer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxdocument.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxdocumentinfo.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxenvironment.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxgroupname.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxlibrary.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxmediaclip.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxobjectfilter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxobjectmetadata.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxobjectscontainer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxpose.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxreference.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxscene.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxselectionnode.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxselectionset.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxtakeinfo.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxthumbnail.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\fbxvideo.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxblendshape.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxblendshapechannel.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcache.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcachedeffect.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcamera.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcamerastereo.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcameraswitcher.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxcluster.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxdeformer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxgenericnode.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxgeometry.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxgeometrybase.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxgeometryweightedmap.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxlayer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxlayercontainer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxlight.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxlimitsutilities.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxline.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxlodgroup.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxmarker.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxmesh.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnode.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnodeattribute.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnull.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnurbs.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnurbscurve.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxnurbssurface.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxopticalreference.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxpatch.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxproceduralgeometry.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxshape.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxskeleton.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxskin.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxsubdeformer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxsubdiv.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxtrimnurbssurface.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxvertexcachedeformer.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\geometry\fbxweightedmapping.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxbindingoperator.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxbindingsentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxbindingtable.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxbindingtablebase.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxbindingtableentry.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxconstantentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxfiletexture.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbximplementation.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbximplementationfilter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbximplementationutils.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxlayeredtexture.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxlayerentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxoperatorentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxproceduraltexture.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxpropertyentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxsemanticentryview.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxshadingconventions.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxsurfacelambert.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxsurfacematerial.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxsurfacematerialutils.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxsurfacephong.h" />
+    <ClInclude Include="include\vendor\fbxsdk\scene\shading\fbxtexture.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxclonemanager.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxdeformationsevaluator.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxembeddedfilesaccumulator.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxgeometryconverter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxmanipulators.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxmaterialconverter.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxnamehandler.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxprocessor.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxprocessorshaderdependency.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxprocessorxref.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxprocessorxrefuserlib.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategy.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategybase.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategyfbx5.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategyfbx6.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategyfbx7.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrenamingstrategyutilities.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxrootnodeutility.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxscenecheckutility.h" />
+    <ClInclude Include="include\vendor\fbxsdk\utils\fbxusernotification.h" />
+    <ClInclude Include="include\vendor\imgui\imconfig.h" />
+    <ClInclude Include="include\vendor\imgui\imgui.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="include\vendor\imgui\imgui_stdlib.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="include\vendor\imgui\imstb_truetype.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\c14n.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\catalog.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\chvalid.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\debugXML.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\dict.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\DOCBparser.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\encoding.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\entities.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\globals.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\hash.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\HTMLparser.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\HTMLtree.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\list.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\nanoftp.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\nanohttp.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\parser.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\parserInternals.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\pattern.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\relaxng.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\SAX.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\SAX2.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\schemasInternals.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\schematron.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\threads.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\tree.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\uri.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\valid.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xinclude.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xlink.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlautomata.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlerror.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlexports.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlIO.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlmemory.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlmodule.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlreader.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlregexp.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlsave.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlschemas.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlschemastypes.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlstring.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlunicode.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlversion.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlwin32version.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xmlwriter.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xpath.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xpathInternals.h" />
+    <ClInclude Include="include\vendor\libxml2\libxml\xpointer.h" />
+    <ClInclude Include="include\vendor\GLFW\glfw3.h" />
+    <ClInclude Include="include\vendor\GLFW\glfw3native.h" />
+    <ClInclude Include="include\vendor\glm\common.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\compute_common.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\compute_vector_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\qualifier.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\setup.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_float.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_half.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_mat4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_quat.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_vec1.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_vec2.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_vec3.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\type_vec4.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_features.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_fixes.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_noise.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_swizzle.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_swizzle_func.hpp" />
+    <ClInclude Include="include\vendor\glm\detail\_vectorize.hpp" />
+    <ClInclude Include="include\vendor\glm\exponential.hpp" />
+    <ClInclude Include="include\vendor\glm\ext.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_clip_space.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_common.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double2x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double3x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_double4x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float2x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float3x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_float4x4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int2x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int3x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_int4x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_projection.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_transform.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint2x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint3x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\matrix_uint4x4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_common.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_double.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_double_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_exponential.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_float.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_float_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_geometric.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_transform.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\quaternion_trigonometric.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_common.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_constants.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_integer.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_int_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_packing.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_uint_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\scalar_ulp.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool1.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool1_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_bool4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_common.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double1.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double1_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_double4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float1.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float1_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float2_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float3_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_float4_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int1.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int1_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_int4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_integer.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_packing.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint1.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint1_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint2.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint2_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint3.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint3_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint4.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_uint4_sized.hpp" />
+    <ClInclude Include="include\vendor\glm\ext\vector_ulp.hpp" />
+    <ClInclude Include="include\vendor\glm\fwd.hpp" />
+    <ClInclude Include="include\vendor\glm\geometric.hpp" />
+    <ClInclude Include="include\vendor\glm\glm.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\bitfield.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\color_space.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\constants.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\epsilon.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\integer.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\matrix_access.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\matrix_integer.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\matrix_inverse.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\matrix_transform.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\noise.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\packing.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\quaternion.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\random.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\reciprocal.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\round.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\type_aligned.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\type_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\type_ptr.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\ulp.hpp" />
+    <ClInclude Include="include\vendor\glm\gtc\vec1.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\associated_min_max.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\bit.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\closest_point.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\color_encoding.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\color_space.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\color_space_YCoCg.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\common.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\compatibility.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\component_wise.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\dual_quaternion.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\easing.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\euler_angles.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\extend.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\extended_min_max.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\exterior_product.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\fast_exponential.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\fast_square_root.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\fast_trigonometry.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\functions.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\gradient_paint.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\handed_coordinate_space.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\hash.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\integer.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\intersect.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\io.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\log_base.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_cross_product.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_decompose.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_factorisation.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_interpolation.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_major_storage.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_operation.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_query.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\matrix_transform_2d.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\mixed_product.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\norm.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\normal.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\normalize_dot.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\number_precision.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\optimum_pow.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\orthonormalize.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\perpendicular.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\polar_coordinates.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\projection.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\quaternion.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\range.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\raw_data.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\rotate_normalized_axis.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\rotate_vector.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\scalar_multiplication.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\scalar_relational.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\spline.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\std_based_type.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\string_cast.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\texture.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\transform.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\transform2.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\type_aligned.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\type_trait.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\vector_angle.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\vector_query.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\vec_swizzle.hpp" />
+    <ClInclude Include="include\vendor\glm\gtx\wrap.hpp" />
+    <ClInclude Include="include\vendor\glm\integer.hpp" />
+    <ClInclude Include="include\vendor\glm\mat2x2.hpp" />
+    <ClInclude Include="include\vendor\glm\mat2x3.hpp" />
+    <ClInclude Include="include\vendor\glm\mat2x4.hpp" />
+    <ClInclude Include="include\vendor\glm\mat3x2.hpp" />
+    <ClInclude Include="include\vendor\glm\mat3x3.hpp" />
+    <ClInclude Include="include\vendor\glm\mat3x4.hpp" />
+    <ClInclude Include="include\vendor\glm\mat4x2.hpp" />
+    <ClInclude Include="include\vendor\glm\mat4x3.hpp" />
+    <ClInclude Include="include\vendor\glm\mat4x4.hpp" />
+    <ClInclude Include="include\vendor\glm\matrix.hpp" />
+    <ClInclude Include="include\vendor\glm\packing.hpp" />
+    <ClInclude Include="include\vendor\glm\simd\common.h" />
+    <ClInclude Include="include\vendor\glm\simd\exponential.h" />
+    <ClInclude Include="include\vendor\glm\simd\geometric.h" />
+    <ClInclude Include="include\vendor\glm\simd\integer.h" />
+    <ClInclude Include="include\vendor\glm\simd\matrix.h" />
+    <ClInclude Include="include\vendor\glm\simd\neon.h" />
+    <ClInclude Include="include\vendor\glm\simd\packing.h" />
+    <ClInclude Include="include\vendor\glm\simd\platform.h" />
+    <ClInclude Include="include\vendor\glm\simd\trigonometric.h" />
+    <ClInclude Include="include\vendor\glm\simd\vector_relational.h" />
+    <ClInclude Include="include\vendor\glm\trigonometric.hpp" />
+    <ClInclude Include="include\vendor\glm\vec2.hpp" />
+    <ClInclude Include="include\vendor\glm\vec3.hpp" />
+    <ClInclude Include="include\vendor\glm\vec4.hpp" />
+    <ClInclude Include="include\vendor\glm\vector_relational.hpp" />
+    <ClInclude Include="include\vendor\GL\eglew.h" />
+    <ClInclude Include="include\vendor\GL\glew.h" />
+    <ClInclude Include="include\vendor\GL\glxew.h" />
+    <ClInclude Include="include\vendor\GL\wglew.h" />
+    <ClInclude Include="include\vendor\stb\stb_image.h" />
+    <ClInclude Include="include\core\renderer.h" />
+    <ClInclude Include="include\utils\utils.h" />
+    <ClInclude Include="include\core\shader.h" />
+    <ClInclude Include="include\core\geometry.h" />
+    <ClInclude Include="include\core\renderable.h" />
+    <ClInclude Include="include\core\scene.h" />
+    <ClInclude Include="include\core\sprite.h" />
+    <ClInclude Include="include\core\texture.h" />
+    <ClInclude Include="include\core\vertex.h" />
+    <ClInclude Include="include\core\input.h" />
+    <ClInclude Include="include\core\player.h" />
+    <ClInclude Include="numericParser.h" />
+    <ClInclude Include="include\fluidsim\particle.h" />
+    <ClInclude Include="include\fluidsim\volume.h" />
+    <ClInclude Include="include\core\shapes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\Shaders\texturedUnlitFrag.glsl" />
+    <Text Include="src\Shaders\texturedUnlitVert.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="donut.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.3.targets" />
+  </ImportGroup>
+</Project>
